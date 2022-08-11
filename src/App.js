@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Data from './components/Data';
+import Fitness from './components/Fitness';
+import './style.css';
+import Tourism from './components/Tourism';
+import Home from './components/Home';
+import Technology from './components/Technology';
+import Bollywood from './components/Bollywood';
+import Food from './components/Food';
+import FinalPage from './components/FinalPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+      <Data>
+      
+        <BrowserRouter>
+
+        <Navbar />
+
+          <Routes>
+
+            <Route path='/' element={ <Home /> } />            
+            <Route path='/home' element={ <Home /> } />  
+            <Route path='/category/tourism' element={ <Tourism /> } />
+            <Route path='/category/fitness' element={ <Fitness />} />
+            <Route path='/category/technology' element={ <Technology /> } />
+            <Route path='/category/bollywood' element={ <Bollywood /> } />
+            <Route path='/category/food' element={ <Food /> } />
+            <Route path='/category/article/:itemTitle/:itemCategoryName' element={ <FinalPage />} />
+
+          </Routes>
+          
+        </BrowserRouter>
+      </Data>
     </div>
-  );
+  )
 }
 
 export default App;
